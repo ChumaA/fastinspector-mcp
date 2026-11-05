@@ -7,7 +7,7 @@
     "email": "support@fastinspector.com"
   },
   "homepage": "https://www.fastinspector.com/blog/ai-connectors",
-  "repository": "https://github.com/ChumaA/fastinspector-cursor-plugin",
+  "repository": "https://github.com/ChumaA/fastinspector-mcp",
   "license": "MIT",
   "keywords": ["real-estate", "home-inspection", "mcp", "read-only"],
   "logo": "assets/logo.png"

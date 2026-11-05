@@ -1,22 +1,31 @@
-# FastInspector for Cursor
+# FastInspector MCP connector
 
-Ask about your [FastInspector](https://www.fastinspector.com) work in plain language. FastInspector connects real estate agents, home buyers and inspection companies to book and track home inspections.
+Connects AI assistants to [FastInspector](https://www.fastinspector.com) over the [Model Context Protocol](https://modelcontextprotocol.io). FastInspector connects real estate agents, home buyers and inspection companies to book and track home inspections. Ask about your bookings, company requests, appointments and notifications in plain language.
 
-This plugin adds one remote MCP server, `https://mcp.fastinspector.com`. It contains no code that runs on your machine.
+| | |
+|---|---|
+| **Server URL** | `https://mcp.fastinspector.com` |
+| **Transport** | Streamable HTTP (remote; nothing to install or run locally) |
+| **Auth** | OAuth with your FastInspector account (no API key) |
+| **Access** | Read-only (`fastinspector.read` scope) |
 
-## Before you start
-
-You need:
+## Requirements
 
 - A FastInspector account with the current Terms accepted.
 - **Allow AI connectors (MCP)** turned on in FastInspector settings. It's off by default. An inspector's company owner must turn it on too.
 
-## Setup
+Each person signs in as themselves, so the assistant sees only what that person can already see in FastInspector.
 
-1. Install the plugin.
-2. Open the `fastinspector` MCP server in Cursor and sign in with your FastInspector account.
+## Connect
 
-There's no API key to set. Sign-in uses OAuth, and you can disconnect at any time by turning **Allow AI connectors (MCP)** off.
+- **Claude:** open [FastInspector in the Claude directory](https://claude.ai/directory/fastinspector) and choose **Connect to Claude**.
+- **Claude Code:** run `claude mcp add --transport http fastinspector https://mcp.fastinspector.com`.
+- **Cursor:** install the plugin, or add the server to your MCP settings using this repo's [`mcp.json`](mcp.json).
+- **Grok:** ask a Grok Bot in a chat to add the connector, and give it the server URL.
+
+The server only admits approved clients, so another MCP client may be refused. To ask for one to be added, email support@fastinspector.com.
+
+On first use your client opens a FastInspector sign-in page and asks you to allow access. Turn **Allow AI connectors (MCP)** off at any time to disconnect.
 
 ## Tools
 
@@ -47,9 +56,18 @@ Other roles get a clear error from a tool that isn't for them.
 
 The connector signs in as you and sees only what your account can already see. It can't book, accept, pay, sign or change anything. It doesn't return inspection reports, findings or photos, card or bank details, or share links.
 
-- [Setup guide](https://www.fastinspector.com/blog/ai-connectors)
-- [Privacy Policy](https://www.fastinspector.com/privacy)
-- Support: support@fastinspector.com
+## Limits
+
+Up to 60 tool calls per minute and 1,000 per day per person, and 300 per minute per company. Every call is logged for security and kept for 12 months.
+
+## Links
+
+- Setup guide: <https://www.fastinspector.com/blog/ai-connectors>
+- Privacy Policy: <https://www.fastinspector.com/privacy>
+- Terms of Service: <https://www.fastinspector.com/terms>
+- Support: support@fastinspector.com · <https://www.fastinspector.com/contact>
+
+Reviewers: a test account with sample data is available on request at support@fastinspector.com.
 
 ## License
 
