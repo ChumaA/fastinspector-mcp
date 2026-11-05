@@ -1,7 +1,14 @@
 {
   "mcpServers": {
     "fastinspector": {
-      "url": "https://mcp.fastinspector.com"
+      "url": "https://mcp.fastinspector.com",
+      "auth": {
+        "CLIENT_ID": "https://cursor.com/oauth/mcp-client.json",
+        "scopes": [
+          "fastinspector.read",
+          "offline_access"
+        ]
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "fastinspector",
   "description": "Ask about your home inspection bookings, company requests, appointments and notifications in FastInspector. Read-only: it signs in as you and cannot change anything.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "FastInspector LLC",
     "email": "support@fastinspector.com"
