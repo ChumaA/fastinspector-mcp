@@ -1,0 +1,43 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "fastinspector",
+  "version": "1.0.1",
+  "description": "Ask about your home inspection bookings, company requests, appointments and notifications in FastInspector. Read-only: it signs in as you and cannot change anything.",
+  "author": {
+    "name": "FastInspector LLC",
+    "email": "support@fastinspector.com",
+    "url": "https://www.fastinspector.com"
+  },
+  "homepage": "https://www.fastinspector.com/blog/ai-connectors",
+  "repository": "https://github.com/ChumaA/fastinspector-mcp",
+  "license": "MIT",
+  "keywords": ["real-estate", "home-inspection", "read-only"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "FastInspector",
+        "shortDescription": "Your home inspection bookings",
+        "longDescription": "FastInspector is a home inspection marketplace for real estate agents, buyers, inspection companies and inspectors. Connect your FastInspector account to ask about your own data in plain language.\n\nAgents and buyers can see their bookings, a booking's appointments and deadlines, the inspection types offered and the companies that can take an inspection at one of their bookings. Inspection companies can see their booking requests and ongoing jobs, soonest first. Inspectors can see their upcoming appointments. Everyone can read their profile and notifications.\n\nThe plugin is read-only. It signs in as you with OAuth, sees only what you can see in the FastInspector app, and cannot book, pay, cancel or change anything. Turn on Allow AI connectors (MCP) in FastInspector settings before connecting. Turning it off at any time revokes access.",
+        "developerName": "FastInspector LLC",
+        "category": "Productivity",
+        "websiteURL": "https://www.fastinspector.com",
+        "supportURL": "https://www.fastinspector.com/contact",
+        "privacyPolicyURL": "https://www.fastinspector.com/privacy",
+        "termsOfServiceURL": "https://www.fastinspector.com/terms",
+        "brandColor": "#3D5C4A",
+        "brandColorDark": "#8FBC9A",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png",
+        "defaultPrompt": [
+          "Show my FastInspector profile",
+          "List my inspection bookings",
+          "Show my latest FastInspector notifications"
+        ]
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "First release: eight read-only tools for profiles, bookings, appointments, company requests, inspection types, eligible companies and notifications."
+      }
+    }
+  }
+}

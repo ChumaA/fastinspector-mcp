@@ -21,6 +21,7 @@ Each person signs in as themselves, so the assistant sees only what that person 
 - **Claude:** open [FastInspector in the Claude directory](https://claude.ai/directory/fastinspector) and choose **Connect to Claude**.
 - **Claude Code:** run `claude mcp add --transport http fastinspector https://mcp.fastinspector.com`.
 - **Cursor:** install the plugin, or add the server to your MCP settings using this repo's [`mcp.json`](mcp.json).
+- **ChatGPT:** in ChatGPT, open **Plugins → Add → Add custom MCP server** and enter the server URL with OAuth. The OpenAI plugin package (listing for ChatGPT and Codex) is in [`openai/`](openai).
 - **Grok:** ask a Grok Bot in a chat to add the connector, and give it the server URL.
 
 The server only admits approved clients, so another MCP client may be refused. To ask for one to be added, email support@fastinspector.com.
