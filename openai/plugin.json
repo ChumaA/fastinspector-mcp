@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "fastinspector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Ask about your home inspection bookings, company requests, appointments and notifications in FastInspector. Read-only: it signs in as you and cannot change anything.",
   "author": {
     "name": "FastInspector LLC",
@@ -37,6 +37,58 @@
       "publication": {
         "countries": ["US"],
         "release_notes": "First release: eight read-only tools for profiles, bookings, appointments, company requests, inspection types, eligible companies and notifications."
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Show the user's profile",
+              "prompt": "Show my FastInspector profile",
+              "tools_triggered": "get_me",
+              "expected_behavior": "Returns the signed-in user's profile: Demo Agent, role Agent, email support+review-agent@fastinspector.com, and no company."
+            },
+            {
+              "description": "List the user's bookings",
+              "prompt": "List my inspection bookings",
+              "tools_triggered": "list_my_bookings",
+              "expected_behavior": "Lists the review account's 5 bookings, each with one appointment: 2 with the report delivered, 1 with the inspector en route and 2 canceled."
+            },
+            {
+              "description": "Show one booking's details",
+              "prompt": "Show the details of my booking where the inspection report was delivered",
+              "tools_triggered": "list_my_bookings, get_booking",
+              "expected_behavior": "Finds a booking whose appointment has the report delivered, then shows its property address, payer, deadlines and that appointment's status."
+            },
+            {
+              "description": "List inspection types",
+              "prompt": "What inspection types does FastInspector offer?",
+              "tools_triggered": "list_inspection_types",
+              "expected_behavior": "Lists the inspection types FastInspector offers, by name."
+            },
+            {
+              "description": "Show unread notifications",
+              "prompt": "Show my unread FastInspector notifications",
+              "tools_triggered": "list_notifications",
+              "expected_behavior": "Calls list_notifications with unreadOnly true and lists the unread notifications newest first, or says there are none."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Booking an inspection (write action not supported)",
+              "prompt": "Book a home inspection at 123 Main St for tomorrow"
+            },
+            {
+              "description": "Cancelling an appointment (write action not supported)",
+              "prompt": "Cancel my inspection that's en route"
+            },
+            {
+              "description": "Unrelated request",
+              "prompt": "What's the weather in Ashburn today?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "FastInspector's plugin is read-only. It does not sell products, take payments or link to checkout; inspections are booked and paid for in the FastInspector app."
       }
     }
   }
